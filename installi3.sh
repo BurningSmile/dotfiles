@@ -58,5 +58,6 @@ cp .Xresources ~
 cp ~/dotfiles/i3/Background/wallpaperArch.png ~/Pictures
 
 cd ~
+rm -rf dotfiles/
 #Echo when complete
 echo "Install is finished. Restart Arch Linux to log into i3."

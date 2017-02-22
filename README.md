@@ -12,5 +12,7 @@ The install script is for Arch based systems. An Ubuntu install script will be w
 # Credits
 
 .themes
+
 Numix [The original Numix devs. Link:https://github.com/numixproject/numix-gtk-theme AMORPHER on gnome-look.org. Link:https://www.gnome-look.org/p/1137261/]
+
 Oomox-numix [The original Numix devs, The oomox project. Link:https://github.com/actionless/oomox]

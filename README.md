@@ -1,4 +1,4 @@
-# dotfiles
+# Dotfiles
 My Linux system configuration
 
 # To use the install script
@@ -12,7 +12,7 @@ chmod +x installconfig.sh
 
 The install script is for Arch based systems. An Ubuntu install script will be writen when I get the time.
 
-Credits
+# Credits
 
 .themes
 Numix [the original numix devs, and AMORPHER on gnome-look.org Link:https://www.gnome-look.org/p/1137261/]

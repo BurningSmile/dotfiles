@@ -1,0 +1,10 @@
+{
+   "cinnamon-theme": {
+        "name" : "Numix-Cinnamon",
+        "author" : "amorpher",
+        "version" : "",
+        "type" : "custom",
+        "thumbnail" : "thumbnail.png",
+        "url" : "https://www.gnome-look.org/p/1013343/"
+    }
+}

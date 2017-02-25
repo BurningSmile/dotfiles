@@ -58,3 +58,6 @@ let g:CSApprox_hook_post = [
             \ 'highlight NonText           ctermbg=NONE',
             \ 'highlight clear LineNr'
             \]
+
+" Enable line numbers
+set number

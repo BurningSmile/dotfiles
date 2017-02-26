@@ -76,6 +76,7 @@ EDITOR=vim
 if command -v tmux>/dev/null; then
 	  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
 fi
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 

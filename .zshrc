@@ -72,6 +72,10 @@ source $ZSH/oh-my-zsh.sh
 #Set editor
 EDITOR=vim
 
+#Auto start Tmux on Terminal open
+if command -v tmux>/dev/null; then
+	  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 

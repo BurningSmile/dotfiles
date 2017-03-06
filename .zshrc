@@ -93,6 +93,11 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias removeorphans="sudo pacman -Rns $(pacman -Qtdq)"
 alias ls='ls -la --color=tty'
+alias fixvmware='sudo vmware-modconfig --console --install-all'
+alias removeorphans='sudo pacman -Rns $(pacman -Qtdq)'
+alias rdesktoplocalhostdefaultport='rdesktop -g 1920x1080 -f -P -z -x l -r sound:off localhost:3389'
+
+#alias editors to vim
 alias nano='vim'
 alias vi='vim'
 alias emacs='vim'
@@ -101,4 +106,5 @@ alias emacs='vim'
 updatepacmanmirrors() {
 	sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 	sudo reflector --country US -p http --save /etc/pacman.d/mirrorlist
+	sudo pacman -Syu
 }

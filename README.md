@@ -17,5 +17,5 @@ Numix [The original Numix devs. Link:https://github.com/numixproject/numix-gtk-t
 
 Oomox-numix [The original Numix devs, The oomox project. Link:https://github.com/actionless/oomox]
 
-tmux theme
+Tmux theme
 https://www.reddit.com/r/unixporn/comments/3cn5gi/tmux_is_my_wm_on_os_x/

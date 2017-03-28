@@ -92,9 +92,8 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias removeorphans="sudo pacman -Rns $(pacman -Qtdq)"
-alias ls='ls -la --color=tty'
+alias ls='ls -lah --color=tty'
 alias fixvmware='sudo vmware-modconfig --console --install-all'
-alias removeorphans='sudo pacman -Rns $(pacman -Qtdq)'
 alias rdesktoplocalhostdefaultport='rdesktop -g 1920x1080 -f -P -z -x l -r sound:off localhost:3389'
 alias tmuxkill='tmux kill-session -t'
 

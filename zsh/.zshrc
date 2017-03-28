@@ -96,7 +96,7 @@ alias ls='ls -lah --color=tty'
 alias fixvmware='sudo vmware-modconfig --console --install-all'
 alias rdesktoplocalhostdefaultport='rdesktop -g 1920x1080 -f -P -z -x l -r sound:off localhost:3389'
 alias tmuxkill='tmux kill-session -t'
-
+alias spicewin10'spicy spice://127.0.0.1 -p 3001' 
 #alias editors to vim
 alias nano='vim'
 alias vi='vim'

@@ -1,6 +1,8 @@
 # Dotfiles
 My Linux system configuration
 
+Mainly used for setting up Devolopment vm's
+
 # To use the install script
 
 There are 2 variants, Read through the scripts in the scripts repo to decide which you want to use.

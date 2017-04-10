@@ -93,16 +93,16 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 #Custom names for workspaces
-set $workspace1 "1: Terminals &#xf120;"
-set $workspace2 "2: Steam &#xf1b6;"
-set $workspace3 "3: Internet &#xf268;"
-set $workspace4 "4: &#xf128;"
-set $workspace5 "5: &#xf128;"
-set $workspace6 "6: &#xf128;"
-set $workspace7 "7: &#xf128;"
-set $workspace8 "8: &#xf128;"
-set $workspace9 "9: &#xf128;"
-set $workspace10 "10: Music &#xf001;"
+set $workspace1 "1:Terminals"
+set $workspace2 "2:Steam"
+set $workspace3 "3:Internet"
+set $workspace4 "4:Random"
+set $workspace5 "5:Random"
+set $workspace6 "6:Random"
+set $workspace7 "7:Random"
+set $workspace8 "8:Random"
+set $workspace9 "9:Random"
+set $workspace10 "10:Music"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -187,18 +187,19 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 hide_edge_borders both
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	colors {
-		background $bg-color
-	    	separator #757575
-		#                  border             background         text
-		focused_workspace  $bg-color          $bg-color          $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-	}
-
-}
+# Commented out for replacement with polybar. Left in incase I ever chouse to go back to i3blocks.
+#bar {
+#        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#	colors {
+#		background $bg-color
+#	    	separator #757575
+#		#                  border             background         text
+#		focused_workspace  $bg-color          $bg-color          $text-color
+#		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+#		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+#	}
+#
+#}
 
 # Change wallpaper every reload
 exec_always feh --bg-scale ~/Pictures/wallpaperArch.png
@@ -225,6 +226,10 @@ bindsym $mod+m exec killall compton
 exec compton
 exec steam
 exec dropbox
+exec redshift
+
+#Start polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 #Steam games fix
 for_window [class="^Steam$" title="^Friends$"] floating enable

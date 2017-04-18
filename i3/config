@@ -225,6 +225,9 @@ bindsym $mod+Shift+m exec compton
 #Kill Compton
 bindsym $mod+m exec killall compton
 
+#Setup screenlayout
+#exec_always --no-startup-id $HOME/.config/.screenlayout/config.sh #Commented out since this is only for my system.
+
 #load up applications on start
 exec compton
 exec steam

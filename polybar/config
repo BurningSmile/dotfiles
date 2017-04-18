@@ -49,7 +49,7 @@ font-3 = FontAwesome:pixelsize=14;0
 
 modules-left = bspwm i3
 modules-center = 
-modules-right = filesystem xbacklight volume cpu memory wlan eth battery temperature date powermenu
+modules-right = filesystem xbacklight volume cpu memory wlan eth battery temperature date redshift
 
 tray-position = right
 tray-padding = 2

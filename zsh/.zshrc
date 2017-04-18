@@ -96,8 +96,10 @@ alias ls='ls -lah --color=tty'
 alias fixvmware='sudo vmware-modconfig --console --install-all'
 alias rdesktoplocalhostdefaultport='rdesktop -g 1920x1080 -f -P -z -x l -r sound:off localhost:3389'
 alias tmuxkill='tmux kill-session -t'
-alias spicewin10'spicy spice://127.0.0.1 -p 3001' 
-#alias editors to vim
+alias spice-default-port'spicy spice://127.0.0.1 -p 3001' 
+alias youtube-dlmp3='youtube-dl -x --audio-format mp3'
+
+#alias other text editors to vim
 alias nano='vim'
 alias vi='vim'
 alias emacs='vim'
@@ -107,4 +109,10 @@ updatepacmanmirrors() {
 	sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 	sudo reflector --country US -p http --save /etc/pacman.d/mirrorlist
 	sudo pacman -Syu
+}
+
+#Optimize pacman
+optimizepacman() {
+	sudo pacman -Sc
+	sudo pacman-optimize
 }

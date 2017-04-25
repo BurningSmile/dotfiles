@@ -204,6 +204,9 @@ hide_edge_borders both
 # Change wallpaper every reload
 exec_always feh --bg-scale ~/Pictures/wallpaperArch.png
 
+#i3-lock-fancy
+bindsym $mod+Ctrl+Shift+l exec lock
+
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause

@@ -233,12 +233,12 @@ bindsym $mod+m exec killall compton
 bindsym $mod+Shift+ctrl+r exec $HOME/.scripts/Redshift_toggle.sh
 
 #Setup screenlayout
-#exec_always --no-startup-id $HOME/.config/.screenlayout/config.sh #Commented out since this is only for my system.
+#exec_always --no-startup-id $HOME/.config/.screenlayout/config.sh 
 
 #load up applications on start
 exec compton
 exec steam
-exec dropbox
+exec --no-startup-id dropbox start
 exec redshift
 
 #Start polybar

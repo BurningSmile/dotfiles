@@ -36,6 +36,7 @@ call plug#end()
 
 Plug 'morhetz/gruvbox'
 
+Plug 'scrooloose/nerdtree'
 colorscheme boltzmann
 
 """ Colorscheme Approximation """
@@ -61,3 +62,27 @@ let g:CSApprox_hook_post = [
 
 " Enable line numbers
 set number
+
+set nocompatible
+" enable syntax and plugins (for netrw)
+syntax enable
+filetype plugin on
+
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
+set path+=**
+
+" Display all matching files when we tab complete
+set wildmenu
+
+" NerdTree open on directory open
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+"Bind opening nerdtree to set key
+"map <C-n> :NERDTreeToggle<CR>
+
+"Close Nerdtree if it is the only open pane. [Exit vim]
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"Show hidden files in nerdtree view
+let NERDTreeShowHidden=1

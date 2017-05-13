@@ -138,6 +138,9 @@ assign [class="Vlc"] $workspace10
 assign [class="Spotify"] $workspace10
 assign [class="Audacious"] $workspace10
 
+#Move workspace to other monitor
+bindsym $mod+Ctrl+Shift+m move workspace to output left
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -233,7 +236,7 @@ bindsym $mod+m exec killall compton
 bindsym $mod+Shift+ctrl+r exec $HOME/.scripts/Redshift_toggle.sh
 
 #Setup screenlayout
-#exec_always --no-startup-id $HOME/.config/.screenlayout/config.sh 
+exec_always --no-startup-id $HOME/.config/.screenlayout/config.sh 
 
 #load up applications on start
 exec compton
@@ -243,6 +246,9 @@ exec redshift
 
 #Start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+#Exec nvidia gpu config
+exec_always --no-startup-id $HOME/.scripts/powermixer.sh
 
 #Steam games fix
 for_window [class="^Steam$" title="^Friends$"] floating enable
@@ -256,5 +262,6 @@ for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
 for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
 for_window [title="^Steam Keyboard$"] floating enable
 
-#Dialogs should open floating by default
+#Authy Floting enable
 for_window [title="(?i)authy"] floating enable
+

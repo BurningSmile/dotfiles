@@ -77,6 +77,9 @@ if command -v tmux>/dev/null; then
 	  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
 fi
 
+# Export 256 color for hex code color support
+export TERM=xterm-256color
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 

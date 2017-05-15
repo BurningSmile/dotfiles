@@ -9,21 +9,21 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #222
-background-alt = #444
+background = #353945
+background-alt = #353945 
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
-foreground-alt = #555
-primary = #F0544C
-secondary = #e60053
-alert = #bd2c40
+foreground-alt = #353945
+primary = #5294E2
+secondary = #5294E2 
+alert = #5294E2
 
 [bar/top]
 monitor = ${env:MONITOR:DVI-I-1}
 width = 100%
 height = 17
-;offset-x = 1%
-;offset-y = 1%
+;offset-x = 0%
+;offset-y = 0%
 radius = 6.0
 fixed-center = false
 
@@ -33,7 +33,7 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 4
+border-size = 0
 border-color = #00000000
 
 padding-left = 0
@@ -45,11 +45,11 @@ module-margin-right = 2
 font-0 =  Hack:weight=Regular:pixelsize=10;1
 font-1 =  Hack:weight=Regular:size=10:antialias=false;0
 font-2 =  Hack:weight=Regular:pixelsize=10;1
-font-3 = FontAwesome:pixelsize=14;0
+font-3 =  FontAwesome:pixelsize=14;0
 
 modules-left = bspwm i3
 modules-center = 
-modules-right = filesystem xbacklight volume cpu memory wlan eth battery temperature date redshift
+modules-right = filesystem xbacklight mpd volume cpu memory wlan eth battery temperature date redshift
 
 tray-position = right
 tray-padding = 2
@@ -169,11 +169,15 @@ ws-icon-default = 
 type = internal/mpd
 format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
 
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
+host = 127.0.0.1
+port = 6600
+interval = 2
+
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause =  
+icon-next = 
 
 label-song-maxlen = 25
 label-song-ellipsis = true

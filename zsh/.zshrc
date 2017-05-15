@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=~/.oh-my-zsh
+  export ZSH=/home/david/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -42,7 +42,7 @@ ZSH_THEME="af-magic"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+ HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -60,7 +60,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+ export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
@@ -69,22 +69,21 @@ source $ZSH/oh-my-zsh.sh
    export EDITOR='mvim'
  fi
 
-#Set editor
-EDITOR=vim
-
-#Auto start Tmux on Terminal open
-if command -v tmux>/dev/null; then
-	  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
-fi
-
-# Export 256 color for hex code color support
-export TERM=xterm-256color
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+ export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+#Set editor 
+EDITOR=vim 
+
+case $TERM in (xterm|rxvt-unicode|screen|tmux) export TERM="$TERM-256color";; esac
+
+#Start tmux on terminal start
+if command -v tmux>/dev/null; then
+  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
+fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -94,17 +93,16 @@ export TERM=xterm-256color
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias removeorphans="sudo pacman -Rns $(pacman -Qtdq)"
+alias fixvmware='sudo vmware-modconfig --console --install-all'
+alias removeorphans='sudo pacman -Rns $(pacman -Qtdq)'
 alias ls='ls -lah --color=tty'
-alias rdesktoplocalhostdefaultport='rdesktop -g 1920x1080 -f -P -z -x l -r sound:off localhost:3389'
 alias tmuxkill='tmux kill-session -t'
-alias spice-default-port'spicy spice://127.0.0.1 -p 3001' 
 alias youtube-dlmp3='youtube-dl -x --audio-format mp3'
+alias spice-default-port'spicy spice://127.0.0.1 -p 3001'
+alias rdesktoplocalhostdefaultport='rdesktop -g 1920x1080 -f -P -z -x l -r sound:off localhost:3389'
 
-#alias other text editors to vim
-alias nano='vim'
-alias vi='vim'
-alias emacs='vim'
+# Dumb hack to get cava to work
+alias cava='export TERM=xterm-256color && cava'
 
 #Update pacman mirrors
 updatepacmanmirrors() {
@@ -119,7 +117,21 @@ optimizepacman() {
 	sudo pacman-optimize
 }
 
-#The Fuck alias
+# Mpd Start
+music() {
+	mpd
+	ncmpcpp
+}
+
+
+# Alias nano, vi, and emacs to vim
+alias nano='vim'
+alias vi='vim'
+alias emacs='vim'
+
+#The fuck alias
 eval $(thefuck --alias)
 # You can use whatever you want as an alias, like for Mondays:
 eval $(thefuck --alias FUCK)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

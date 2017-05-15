@@ -200,7 +200,7 @@ visualizer_look = "+|"
 ## Note: colors can be nested.
 ##
 #
-#song_list_format = {%a - }{%t}|{$8%f$9}$R{$3(%l)$9}
+song_list_format = {%a - }{%t}|{$8%f$9}$R{$3(%l)$9}
 #
 #song_status_format = {{%a{ "%b"{ (%y)}} - }{%t}}|{%f}
 #
@@ -276,7 +276,7 @@ visualizer_look = "+|"
 ##   not available.
 ##
 #
-#song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
+song_columns_list_format = (20)[]{a} (5f)[blue]{NE} (50)[blue]{t|f:Title} (50)[blue]{b} (5f)[blue]{l}
 #
 ##### various settings #####
 #
@@ -493,37 +493,37 @@ visualizer_look = "+|"
 ## depending on the ncurses version used.
 ##
 #
-#colors_enabled = yes
+colors_enabled = yes
 #
-#empty_tag_color = cyan
+empty_tag_color = blue
 #
-#header_window_color = default
+header_window_color = blue
 #
-#volume_color = default
+volume_color = default
 #
-#state_line_color = default
+state_line_color = blue
 #
-#state_flags_color = default
+state_flags_color = blue
 #
-#main_window_color = yellow
+main_window_color = blue 
 #
-#color1 = white
+color1 = white
 #
-#color2 = green
+color2 = blue
 #
-#main_window_highlight_color = yellow
+main_window_highlight_color = blue
 #
-#progressbar_color = black
+progressbar_color = black
 #
-#progressbar_elapsed_color = green
+progressbar_elapsed_color = blue 
 #
-#statusbar_color = default
+statusbar_color = blue
 #
-#alternative_ui_separator_color = black
+alternative_ui_separator_color = black
 #
-#active_column_color = red
+active_column_color = red
 #
-#window_border_color = green
+window_border_color = blue
 #
-#active_window_border = red
+active_window_border = red
 #

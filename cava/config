@@ -7,7 +7,7 @@
 ; mode = normal
  
 # Accepts only non-negative values.
-; framerate = 60
+ framerate = 144
 
 # 'autosens' will attempt to decrease sensitivity if the bars peak. 1 = on, 0 = off
 # 'overshoot' allows bars to overshoot (in % of terminal height) without initiating autosens.
@@ -53,8 +53,8 @@
 ; method = alsa
 ; source = hw:Loopback,1
 
-; method = fifo
-; source = /tmp/mpd.fifo
+ method = fifo
+ source = /tmp/mpd.fifo
 
 
 
@@ -95,7 +95,7 @@
 # Colors can be one of seven predefined: black, blue, cyan, green, magenta, red, white, yellow.
 # Or defined by hex code '#xxxxxx' (hex code must be within '').
 ; background = black
- foreground = '#F0544C'
+ foreground = '#5294E2'
 
 
 [smoothing]

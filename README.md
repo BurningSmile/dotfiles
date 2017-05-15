@@ -1,11 +1,20 @@
 # Dotfiles
 My Linux system configuration
 
-Mainly used for setting up Devolopment vm's
+Mainly used for setting up Devolopment vm's and quickly getting my personal systems up and running.
+
+Things you will need to change to implemet under your system include the following
+
+```
+Change any instances of [David] to your account username in all of the files where it is referenced.
+In polybar comment out the monitor variable
+In Mpd change audio device to your device.
+In Mpd Change the user and group to your user and your group to avoid permission errors.You may also want to change the cava framerate.
+```
 
 # To use the install script
 
-There are 2 variants, Read through the scripts in the scripts repo to decide which you want to use.
+Read through the scripts in the scripts repo to see what the script does before running it.
 
 https://github.com/BurningSmile/LinuxScripts
 

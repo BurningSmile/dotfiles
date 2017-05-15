@@ -130,7 +130,7 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # load applications on certian workspaces
 assign [class="Steam"] $workspace2
-assign [class=Chromium"] $workspace3
+assign [class="Chromium"] $workspace3
 assign [class="Google-chrome"] $workspace3
 assign [class="Firefox"] $workspace3
 assign [class="Google Play Music Desktop Player"] $workspace10

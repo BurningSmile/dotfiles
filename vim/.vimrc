@@ -37,7 +37,13 @@ call plug#end()
 Plug 'morhetz/gruvbox'
 
 Plug 'scrooloose/nerdtree'
-colorscheme boltzmann
+
+Plug 'sheerun/vim-polyglot'
+
+Plug 'joshdick/onedark.vim'
+
+syntax on
+colorscheme onedark 
 
 """ Colorscheme Approximation """
 " This transforms colorschemes to terminal colorschemes

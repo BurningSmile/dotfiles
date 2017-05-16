@@ -70,7 +70,7 @@ source $ZSH/oh-my-zsh.sh
  fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+ export ARCHFLAGS="-arch x86_64"
 
 # ssh
  export SSH_KEY_PATH="~/.ssh/rsa_id"
@@ -78,7 +78,8 @@ source $ZSH/oh-my-zsh.sh
 #Set editor 
 EDITOR=vim 
 
-case $TERM in (xterm|rxvt-unicode|screen|tmux) export TERM="$TERM-256color";; esac
+#case $TERM in (xterm|rxvt-unicode|screen|tmux) export TERM="$TERM-256color";; esac
+case $TERM in (xterm|rxvt-unicode|tmux) export TERM="$TERM-256color";; esac
 
 #Start tmux on terminal start
 if command -v tmux>/dev/null; then
@@ -96,12 +97,12 @@ fi
 alias fixvmware='sudo vmware-modconfig --console --install-all'
 alias removeorphans='sudo pacman -Rns $(pacman -Qtdq)'
 alias ls='ls -lah --color=tty'
+alias rdesktoplocalhostdefaultport='rdesktop -g 1920x1080 -f -P -z -x l -r sound:off localhost:5900'
 alias tmuxkill='tmux kill-session -t'
+alias spicedefaultport='spicy spice://127.0.0.1 -p 3001'
 alias youtube-dlmp3='youtube-dl -x --audio-format mp3'
-alias spice-default-port'spicy spice://127.0.0.1 -p 3001'
-alias rdesktoplocalhostdefaultport='rdesktop -g 1920x1080 -f -P -z -x l -r sound:off localhost:3389'
 
-# Dumb hack to get cava to work
+#Dumb hack to get cava to work
 alias cava='export TERM=xterm-256color && cava'
 
 #Update pacman mirrors
@@ -129,7 +130,7 @@ alias nano='vim'
 alias vi='vim'
 alias emacs='vim'
 
-#The fuck alias
+#The fuck 
 eval $(thefuck --alias)
 # You can use whatever you want as an alias, like for Mondays:
 eval $(thefuck --alias FUCK)

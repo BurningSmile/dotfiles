@@ -102,9 +102,6 @@ alias tmuxkill='tmux kill-session -t'
 alias spicedefaultport='spicy spice://127.0.0.1 -p 3001'
 alias youtube-dlmp3='youtube-dl -x --audio-format mp3'
 
-#Dumb hack to get cava to work
-#alias cava='export TERM=xterm-256color && cava'
-
 #Update pacman mirrors
 updatepacmanmirrors() {
 	sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak

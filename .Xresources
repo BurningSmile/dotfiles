@@ -47,10 +47,14 @@ Xft.rgba: rgb
 
 ! clickable links, clipboard support, mouse wheel support, and on the fly font resizing
 ! you will need to install the relevent perl extensions for these to work
-URxvt.perl-ext-common: default,matcher,clipboard,vtwheel,resize-font
-URxvt.url-launcher: /usr/bin/firefox
+URxvt.perl-ext-common: default,matcher,clipboard,vtwheel,resize-font,fullscreen,selection-to-clipboard,paste_clipboard
+URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 URxvt.matcher.rend.0: Uline Bold fg5
+
+!Normal copy and paste keybinds
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 
 ! colors
 *.cursorColor:  #b3bdcb

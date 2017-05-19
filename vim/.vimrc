@@ -70,6 +70,9 @@ let g:CSApprox_hook_post = [
 set number
 
 set nocompatible
+
+nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>4jwf>a
+
 " enable syntax and plugins (for netrw)
 syntax enable
 filetype plugin on

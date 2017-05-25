@@ -161,7 +161,7 @@ ws-icon-4 = 5:Random;
 ws-icon-5 = 6:Random;
 ws-icon-6 = 7:Random;
 ws-icon-7 = 8:Random;
-ws-icon-8 = 9:Random;
+ws-icon-8 = 9:Random;
 ws-icon-9 = 10:Music;
 ws-icon-default = 
 
@@ -172,7 +172,7 @@ host = 127.0.0.1
 port = 6600
 interval = 2
 
-format-online = <label-song> <icon-prev> <icon-stop> <toggle> <icon-next> <icon-random> <icon-repeat>
+format-online = <label-song> <icon-prev> <toggle> <icon-next> <icon-random> <icon-repeat>
 
 label-song = %artist% - %title%
 
@@ -282,8 +282,8 @@ interval = 5
 date =
 date-alt = " %m-%d-%Y"
 
-time = %H:%M
-time-alt = %H:%M:%S
+time = %I:%M
+time-alt = %I:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}

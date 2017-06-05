@@ -251,7 +251,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id $HOME/.scripts/powermixer.sh
 
 #Steam games fix
-for_window [class="^Steam$" title="^Friends$"] floating enable
+#for_window [class="^Steam$" title="^Friends$"] floating enable
 for_window [class="^Steam$" title="Steam - News"] floating enable
 #for_window [class="^Steam$" title=".* - Chat"] floating enable
 for_window [class="^Steam$" title="^Settings$"] floating enable

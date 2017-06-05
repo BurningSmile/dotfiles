@@ -1,0 +1,4 @@
+pane	0	0	:zsh	1	:*	0	:/home/david	0	zsh	:
+pane	0	0	:zsh	1	:*	1	:/home/david	1	zsh	:
+window	0	0	1	:*	b42b,212x57,0,0[212x28,0,0,0,212x28,0,29,1]
+state	0	

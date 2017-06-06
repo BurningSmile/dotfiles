@@ -49,7 +49,7 @@ font-3 =  FontAwesome:pixelsize=14;0
 
 modules-left = bspwm i3
 modules-center = 
-modules-right = filesystem xbacklight mpd volume cpu memory wlan eth battery temperature date redshift
+modules-right = filesystem xbacklight mpd spotify volume cpu memory wlan eth battery temperature date redshift
 
 tray-position = right
 tray-padding = 2
@@ -161,7 +161,7 @@ ws-icon-4 = 5:Random;
 ws-icon-5 = 6:Random;
 ws-icon-6 = 7:Random;
 ws-icon-7 = 8:Random;
-ws-icon-8 = 9:Random;
+ws-icon-8 = 9:RDP/Spice;
 ws-icon-9 = 10:Music;
 ws-icon-default = 
 
@@ -261,8 +261,8 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp0s3
-;interface = eno1 ;My personal interface
+;interface = enp0s3
+interface = eno1 
 interval = 3.0
 
 format-connected-underline = #55aa55
@@ -356,6 +356,12 @@ animation-charging-3 = 
 animation-charging-4 = 
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
+
+[module/spotify]
+type = custom/script
+exec = echo "$(spotify-cli --status)"
+tail = true
+interval = 2
 
 [module/temperature]
 type = internal/temperature

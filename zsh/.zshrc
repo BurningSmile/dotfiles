@@ -66,20 +66,25 @@ source $ZSH/oh-my-zsh.sh
  if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
  else
-   export EDITOR='mvim'
+   export EDITOR='vim'
  fi
-
+ 
 # Compilation flags
- export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
 # ssh
  export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-#Set editor 
-EDITOR=vim 
+
+ if [[ -n $SSH_CONNECTION ]]; then
+    export TERM=xterm
+ else
+    case $TERM in (xterm|rxvt-unicode|tmux) export TERM="$TERM-256color";; esac 
+fi
+
 
 #case $TERM in (xterm|rxvt-unicode|screen|tmux) export TERM="$TERM-256color";; esac
-case $TERM in (xterm|rxvt-unicode|tmux) export TERM="$TERM-256color";; esac
+#case $TERM in (xterm|rxvt-unicode|tmux) export TERM="$TERM-256color";; esac
 
 #Start tmux on terminal start
 if command -v tmux>/dev/null; then
@@ -97,10 +102,11 @@ fi
 alias fixvmware='sudo vmware-modconfig --console --install-all'
 alias removeorphans='sudo pacman -Rns $(pacman -Qtdq)'
 alias ls='ls -lah --color=tty'
-alias rdesktoplocalhostdefaultport='rdesktop -g 1920x1080 -f -P -z -x l -r sound:off localhost:5900'
+alias rdesktoplocalhostdefaultport='rdesktop -g 1920x1080 -P -z -x l -r sound:off localhost:3389'
 alias tmuxkill='tmux kill-session -t'
 alias spicedefaultport='spicy spice://127.0.0.1 -p 3001'
-alias youtube-dlmp3='youtube-dl -x --audio-format mp3'
+alias scrot-custom='scrot ~/Pictures/Scrot/%b%d::%H%M%S.png' 
+alias youtube-dlmp3="youtube-dl -o '%(title)s.%(ext)s' -x --audio-format mp3"
 
 #Update pacman mirrors
 updatepacmanmirrors() {
@@ -118,9 +124,18 @@ optimizepacman() {
 # Mpd Start
 music() {
 	mpd
+	mpc update
 	ncmpcpp
 }
 
+#Update Debian based distros alias
+updatedebiansystem() {
+	sudo apt update
+	sudo apt upgrade
+	sudo apt dist-upgrade
+	sudo apt autoremove
+	sudo apt clean
+}
 
 # Alias nano, vi, and emacs to vim
 alias nano='vim'

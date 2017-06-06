@@ -49,11 +49,19 @@ Plug 'godlygeek/csapprox'
 
 Plug 'mhinz/vim-startify'
 
+Plug 'tpope/vim-sensible'
+
+Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim' }
+"Plug 'dhruvasagar/vim-prosession'
 " Initialize plugin system
 call plug#end()
 
 syntax on
 colorscheme onedark 
+
+set laststatus=2 " Always display the statusline in all windows
+set showtabline=2 " Always display the tabline, even if there is only one tab
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
 """ Colorscheme Approximation """
 " This transforms colorschemes to terminal colorschemes
@@ -79,6 +87,9 @@ let g:CSApprox_hook_post = [
 set number
 
 set nocompatible
+
+" Allow editing of files with sudo
+cmap w!! w !sudo tee >/dev/null % | :edit!
 
 nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>4jwf>a
 

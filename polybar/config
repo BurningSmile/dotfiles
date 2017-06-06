@@ -49,7 +49,7 @@ font-3 =  FontAwesome:pixelsize=14;0
 
 modules-left = bspwm i3
 modules-center = 
-modules-right = filesystem xbacklight mpd spotify volume cpu memory wlan eth battery temperature date redshift
+modules-right = filesystem xbacklight mpd volume cpu memory wlan eth vpncheck battery coretemps date redshift
 
 tray-position = right
 tray-padding = 2
@@ -363,6 +363,15 @@ exec = echo "$(spotify-cli --status)"
 tail = true
 interval = 2
 
+[module/vpncheck]
+type = custom/script
+exec = pgrep openvpn
+interval = 5
+label = vpn
+format-underline = #268bd2
+format-prefix = " "
+format-prefix-foreground = #5b
+
 [module/temperature]
 type = internal/temperature
 thermal-zone = 2
@@ -381,6 +390,12 @@ ramp-0 = 
 ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
+
+[module/coretemps]
+type = custom/script
+interval = 1
+exec-if = sensors
+exec = ~/.config/polybar/tempcores.sh
 
 [module/powermenu]
 type = custom/menu

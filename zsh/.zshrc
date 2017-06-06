@@ -91,6 +91,9 @@ if command -v tmux>/dev/null; then
   [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
 fi
 
+#Powerline Start
+. /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -107,6 +110,7 @@ alias tmuxkill='tmux kill-session -t'
 alias spicedefaultport='spicy spice://127.0.0.1 -p 3001'
 alias scrot-custom='scrot ~/Pictures/Scrot/%b%d::%H%M%S.png' 
 alias youtube-dlmp3="youtube-dl -o '%(title)s.%(ext)s' -x --audio-format mp3"
+alias snapshotcreate="qemu-img create -f qcow2 -b image_file snapshot.img"
 
 #Update pacman mirrors
 updatepacmanmirrors() {

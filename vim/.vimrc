@@ -89,13 +89,16 @@ set number
 set nocompatible
 
 " Allow editing of files with sudo
-cmap w!! w !sudo tee >/dev/null % | :edit!
+cmap w!! w !sudo tee >/dev/null %
 
 nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>4jwf>a
 
 " enable syntax and plugins (for netrw)
 syntax enable
 filetype plugin on
+
+" Turn off bell
+set noeb vb t_vb=
 
 " Search down into subfolders
 " Provides tab-completion for all file-related tasks
@@ -130,4 +133,10 @@ if (empty($TMUX))
   if (has("termguicolors"))
     set termguicolors
   endif
+endif
+
+if &term =~ '256color'
+  " Disable Background Color Erase (BCE) so that color schemes work
+  " properly within 256-color terminals
+  set t_ut=
 endif

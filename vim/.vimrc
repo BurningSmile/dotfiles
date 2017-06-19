@@ -52,6 +52,7 @@ Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-sensible'
 
 Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim' }
+
 "Plug 'dhruvasagar/vim-prosession'
 " Initialize plugin system
 call plug#end()

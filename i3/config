@@ -139,7 +139,7 @@ assign [class="Vlc"] $workspace10
 assign [class="Spotify"] $workspace10
 assign [class="Audacious"] $workspace10
 
-#Move workspace to other monitor
+#move workspace to other monitor
 bindsym $mod+Ctrl+Shift+m move workspace to output left
 
 # reload the configuration file
@@ -206,13 +206,13 @@ hide_edge_borders both
 #
 #}
 
-# Change wallpaper every reload
+# change wallpaper every reload
 exec_always feh --bg-scale ~/Pictures/Mountins-Wallpaper.jpg
 
 #i3-lock-fancy
 bindsym $mod+Ctrl+Shift+l exec lock
 
-# Media player controls
+# media player controls
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
@@ -223,23 +223,23 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #i
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
-# Sreen brightness controls
+# Screen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
-#exec compton  
+# exec compton  
 bindsym $mod+Shift+m exec killall compton
 
-#Kill Compton
+# kill Compton
 bindsym $mod+m exec compton
 
-#Toggle Redshift
+# toggle Redshift
 bindsym $mod+Shift+ctrl+r exec $HOME/.scripts/Redshift_toggle.sh
 
-#Setup screenlayout
+# setup screenlayout
 exec_always --no-startup-id $HOME/.config/.screenlayout/config.sh 
 
-#load up applications on start
+# load applications on start
 exec compton
 exec steam
 exec --no-startup-id dropbox start
@@ -250,6 +250,9 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 #Exec nvidia gpu config
 exec_always --no-startup-id $HOME/.scripts/powermixer.sh
+
+# exec dunst for notifications
+exec dunst
 
 #Steam games fix
 #for_window [class="^Steam$" title="^Friends$"] floating enable

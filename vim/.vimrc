@@ -53,6 +53,10 @@ Plug 'tpope/vim-sensible'
 
 Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim' }
 
+Plug 'ervandew/supertab' "Auto tab completion
+
+Plug 'Valloric/YouCompleteMe'
+
 "Plug 'dhruvasagar/vim-prosession'
 " Initialize plugin system
 call plug#end()
@@ -88,6 +92,9 @@ let g:CSApprox_hook_post = [
 set number
 
 set nocompatible
+
+"stuff for auto completion
+let g:ycm_server_python_interpreter = '/usr/bin/python2'
 
 " Allow editing of files with sudo
 cmap w!! w !sudo tee >/dev/null %

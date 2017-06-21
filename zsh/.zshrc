@@ -94,6 +94,9 @@ fi
 #Powerline Start
 . /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 
+#Turn off beeping
+setopt NO_BEEP
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -104,7 +107,7 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias fixvmware='sudo vmware-modconfig --console --install-all'
 alias removeorphans='sudo pacman -Rns $(pacman -Qtdq)'
-alias ls='ls -lah --color=tty'
+alias ls='ls --color=tty'
 alias rdesktoplocalhostdefaultport='rdesktop -g 1920x1080 -P -z -x l -r sound:off localhost:3389'
 alias tmuxkill='tmux kill-session -t'
 alias spicedefaultport='spicy spice://127.0.0.1 -p 3001'

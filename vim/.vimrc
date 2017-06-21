@@ -53,7 +53,7 @@ Plug 'tpope/vim-sensible'
 
 Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim' }
 
-Plug 'ervandew/supertab' "Auto tab completion
+"Plug 'ervandew/supertab' "Auto tab completion
 
 Plug 'Valloric/YouCompleteMe'
 

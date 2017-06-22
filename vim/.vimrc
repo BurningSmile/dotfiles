@@ -1,61 +1,26 @@
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
+" load vimplug
 call plug#begin('~/.vim/plugged')
 
-" Make sure you use single quotes
-
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
-
-" Any valid git URL is allowed
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
-" Multiple Plug commands can be written in a single line using | separators
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
-" On-demand loading
+"Plug 'junegunn/vim-github-dashboard'
+Plug 'SirVer/ultisnips' 
+Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-
-" Using a non-master branch
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-
-" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-Plug 'fatih/vim-go', { 'tag': '*' }
-
-" Plugin options
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-
-" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'fatih/vim-go'
+"Plug 'nsf/gocode' "Auto completion for go.
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-
-" Unmanaged plugin (manually installed and updated)
-Plug '~/my-prototype-plugin'
-
-Plug 'morhetz/gruvbox'
-
-Plug 'scrooloose/nerdtree'
-
 Plug 'sheerun/vim-polyglot'
-
-"save layout
-Plug 'tpope/vim-obsession'
-
-"color scheme
-Plug 'joshdick/onedark.vim'
-
+Plug 'tpope/vim-obsession' "Save vim layout
+Plug 'joshdick/onedark.vim' "Color shceme
 Plug 'tmux-plugins/vim-tmux'
-
 Plug 'godlygeek/csapprox'
-
 Plug 'mhinz/vim-startify'
-
 Plug 'tpope/vim-sensible'
-
 Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim' }
-
-"Plug 'ervandew/supertab' "Auto tab completion
-
-Plug 'Valloric/YouCompleteMe'
+"Plug 'ervandew/supertab' " Old auto tab completion
+Plug 'Valloric/YouCompleteMe' "Auto completion
 
 "Plug 'dhruvasagar/vim-prosession'
 " Initialize plugin system

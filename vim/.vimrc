@@ -2,7 +2,7 @@
 " load vimplug
 call plug#begin('~/.vim/plugged')
 
-Plug 'junegunn/vim-easy-align'
+"Plug 'junegunn/vim-easy-align'
 "Plug 'junegunn/vim-github-dashboard'
 Plug 'SirVer/ultisnips' 
 Plug 'honza/vim-snippets'
@@ -10,7 +10,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 Plug 'fatih/vim-go'
 "Plug 'nsf/gocode' "Auto completion for go.
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-obsession' "Save vim layout
 Plug 'joshdick/onedark.vim' "Color shceme
@@ -61,16 +61,31 @@ set nocompatible
 "stuff for auto completion
 let g:ycm_server_python_interpreter = '/usr/bin/python2'
 
-" Allow editing of files with sudo
+"allow saving edits of files with sudo
 cmap w!! w !sudo tee >/dev/null %
 
+"snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+"html snippet
 nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>4jwf>a
 
-" enable syntax and plugins (for netrw)
+"enable syntax and plugins (for netrw)
 syntax enable
 filetype plugin on
 
-" Turn off bell
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+"xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+"nmap ga <Plug>(EasyAlign)
+
+"dissable bell
 set noeb vb t_vb=
 
 " Search down into subfolders
@@ -85,7 +100,7 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 "Bind opening nerdtree to set key
-"map <C-n> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 
 "Close Nerdtree if it is the only open pane. [Exit vim]
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

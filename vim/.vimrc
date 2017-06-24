@@ -1,4 +1,3 @@
-" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 " load vimplug
 call plug#begin('~/.vim/plugged')
 
@@ -21,8 +20,8 @@ Plug 'tpope/vim-sensible'
 Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim' }
 "Plug 'ervandew/supertab' " Old auto tab completion
 Plug 'Valloric/YouCompleteMe' "Auto completion
-
 "Plug 'dhruvasagar/vim-prosession'
+Plug 'ConradIrwin/vim-bracketed-paste' " Sets paste when pasting with normal keybinds
 " Initialize plugin system
 call plug#end()
 
@@ -60,6 +59,9 @@ set nocompatible
 
 "stuff for auto completion
 let g:ycm_server_python_interpreter = '/usr/bin/python2'
+
+"copy to system clipboard
+set clipboard=unnamedplus
 
 "allow saving edits of files with sudo
 cmap w!! w !sudo tee >/dev/null %

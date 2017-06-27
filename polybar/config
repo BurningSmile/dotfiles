@@ -174,7 +174,7 @@ interval = 2
 
 format-online = <label-song> <icon-prev> <toggle> <icon-next> <icon-random> <icon-repeat>
 
-label-song = %artist% - %title%
+label-song = %title% - %artist%
 
 icon-prev = 
 icon-stop = 

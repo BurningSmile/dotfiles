@@ -60,7 +60,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
- export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
@@ -73,26 +73,27 @@ source $ZSH/oh-my-zsh.sh
 export ARCHFLAGS="-arch x86_64"
 
 # ssh
- export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-
+#Set terminal type to xterm when in ssh session
  if [[ -n $SSH_CONNECTION ]]; then
     export TERM=xterm
  else
     case $TERM in (xterm|rxvt-unicode|tmux) export TERM="$TERM-256color";; esac 
 fi
 
-
-#case $TERM in (xterm|rxvt-unicode|screen|tmux) export TERM="$TERM-256color";; esac
-#case $TERM in (xterm|rxvt-unicode|tmux) export TERM="$TERM-256color";; esac
-
 #Start tmux on terminal start
 if command -v tmux>/dev/null; then
   [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
 fi
 
-#Powerline Start
+#powerline start
 . /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+
+#powerline start ubuntu/debian
+if [[ -r /usr/share/powerline/bindings/zsh/powerline.zsh ]]; then
+    source /usr/share/powerline/bindings/zsh/powerline.zsh
+fi
 
 #Turn off beeping
 setopt NO_BEEP
@@ -108,12 +109,12 @@ setopt NO_BEEP
 alias fixvmware='sudo vmware-modconfig --console --install-all'
 alias removeorphans='sudo pacman -Rns $(pacman -Qtdq)'
 alias ls='ls --color=tty'
-alias rdesktoplocalhostdefaultport='rdesktop -g 1920x1080 -P -z -x l -r sound:off localhost:3389'
+alias rdesktop-localhost-default-port='rdesktop -g 1920x1080 -P -z -x l -r sound:off localhost:3389'
 alias tmuxkill='tmux kill-session -t'
 alias spicedefaultport='spicy spice://127.0.0.1 -p 3001'
 alias scrot-custom='scrot ~/Pictures/Scrot/%b%d::%H%M%S.png' 
 alias youtube-dlmp3="youtube-dl -o '%(title)s.%(ext)s' -x --audio-format mp3"
-alias snapshotcreate="qemu-img create -f qcow2 -b image_file snapshot.img"
+alias snapshot-create="qemu-img create -f qcow2 -b image_file snapshot.img"
 
 #Update pacman mirrors
 updatepacmanmirrors() {
@@ -154,4 +155,6 @@ eval $(thefuck --alias)
 # You can use whatever you want as an alias, like for Mondays:
 eval $(thefuck --alias FUCK)
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#FZF
+#export FZF_DEFAULT_OPTS='--height 40% --border'
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

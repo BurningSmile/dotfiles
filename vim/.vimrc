@@ -22,10 +22,13 @@ Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim' }
 Plug 'Valloric/YouCompleteMe' "Auto completion
 "Plug 'dhruvasagar/vim-prosession'
 Plug 'ConradIrwin/vim-bracketed-paste' " Sets paste when pasting with normal keybinds
+Plug 'francoiscabrol/ranger.vim' "Try out ranger in vim
 " Initialize plugin system
 call plug#end()
 
 syntax on
+
+"set color shceme 
 colorscheme onedark 
 
 set laststatus=2 " Always display the statusline in all windows
@@ -52,18 +55,18 @@ let g:CSApprox_hook_post = [
             \ 'highlight clear LineNr'
             \]
 
-" Enable line numbers
+"enable line numbers
 set number
 
 set nocompatible
 
-"stuff for auto completion
+"Set you complete me path to the location to python2. 
 let g:ycm_server_python_interpreter = '/usr/bin/python2'
 
-"copy to system clipboard
+"copy to system clipboard when yanking.
 set clipboard=unnamedplus
 
-"allow saving edits of files with sudo
+"allow saving edits of files with sudo. To save a file just type w!!
 cmap w!! w !sudo tee >/dev/null %
 
 "snippets

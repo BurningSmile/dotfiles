@@ -1,9 +1,9 @@
 # Dotfiles
 My Linux system configuration
 
-Mainly used for setting up Devolopment vm's and quickly getting my personal systems up and running.
+Mainly used for setting up Development vm's and quickly getting my personal systems up and running.
 
-Things you will need to change to implemet under your system include the following
+Things you will need to change to implement under your system include the following
 
 ```
 Change any instances of [David] to your account username in all of the files where it is referenced.
@@ -24,7 +24,7 @@ The install script is for Arch based systems. An Ubuntu install script will be w
 
 # Credits
 
-.Xresources 
+.Xresources
 https://www.reddit.com/r/unixporn/comments/3og32q/bspwm_wip_colors_inspired_by_arc_theme_not_sure/
 
 Numix [The original Numix devs. Link:https://github.com/numixproject/numix-gtk-theme AMORPHER on gnome-look.org. Link:https://www.gnome-look.org/p/1137261/]

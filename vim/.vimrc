@@ -10,27 +10,44 @@ Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 Plug 'fatih/vim-go'
 "Plug 'nsf/gocode' "Auto completion for go.
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-obsession' "Save vim layout
-Plug 'joshdick/onedark.vim' "Color shceme
+Plug 'joshdick/onedark.vim' "color shceme
+Plug 'rakr/vim-one' "other color scheme
+Plug 'sheerun/vim-polyglot'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'godlygeek/csapprox'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-sensible'
 Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim' }
-"Plug 'ervandew/supertab' " Old auto tab completion
 Plug 'Valloric/YouCompleteMe' "Auto completion
 "Plug 'dhruvasagar/vim-prosession'
 Plug 'ConradIrwin/vim-bracketed-paste' " Sets paste when pasting with normal keybinds
-Plug 'francoiscabrol/ranger.vim' "Try out ranger in vim
+Plug 'francoiscabrol/ranger.vim'
+Plug 'suan/vim-instant-markdown'
+
 " Initialize plugin system
 call plug#end()
 
-syntax on
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+  "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
 
-"set color shceme 
-colorscheme onedark 
+colorscheme onedark
+syntax on 
 
+"powerline config
 set laststatus=2 " Always display the statusline in all windows
 set showtabline=2 " Always display the tabline, even if there is only one tab
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
@@ -77,8 +94,10 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-"html snippet
-nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>4jwf>a
+" Set instant markdown to not open preview on every markdown file.
+let g:instant_markdown_autostart = 0
+" Map a key to open the preview 
+map <leader>md :InstantMarkdownPreview<CR>
 
 "enable syntax and plugins (for netrw)
 syntax enable
@@ -109,27 +128,12 @@ map <C-n> :NERDTreeToggle<CR>
 
 "Close Nerdtree if it is the only open pane. [Exit vim]
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 "Show hidden files in nerdtree view
 let NERDTreeShowHidden=1
 
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-if (empty($TMUX))
-  if (has("nvim"))
-    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
+"spaces instead of tabs with a default of 4
+set tabstop=4 softtabstop=4 expandtab shiftwidth=4 
 
-if &term =~ '256color'
-  " Disable Background Color Erase (BCE) so that color schemes work
-  " properly within 256-color terminals
-  set t_ut=
-endif
+"set html tabs to be 2 spaces 
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab

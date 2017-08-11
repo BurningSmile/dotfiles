@@ -242,7 +242,7 @@ bindsym $mod+Shift+m exec killall compton
 bindsym $mod+m exec compton
 
 #toggle Redshift
-bindsym $mod+Shift+ctrl+r exec $HOME/.scripts/Redshift_toggle.sh
+bindsym $mod+Shift+ctrl+r exec $HOME/scripts/Redshift_toggle.sh
 
 #setup screenlayout
 exec_always --no-startup-id $HOME/.config/.screenlayout/config.sh 
@@ -251,13 +251,19 @@ exec_always --no-startup-id $HOME/.config/.screenlayout/config.sh
 exec compton
 exec steam
 exec --no-startup-id dropbox start
-exec redshift
+#exec redshift
 
 #Start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 #Exec nvidia gpu config
-exec_always --no-startup-id $HOME/.scripts/powermixer.sh
+exec_always --no-startup-id $HOME/scripts/powermixer.sh
+
+#exec screentimeouts script [For screen sleep]
+exec_always --no-startup-id $HOME/.config/i3/scripts/screentimeout.sh
+
+#exec autolock script
+exec_always --no-startup-id $HOME/.config/i3/scripts/autolock.sh 
 
 #exec dunst for notifications
 exec dunst

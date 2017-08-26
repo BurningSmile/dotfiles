@@ -1,3 +1,3 @@
 #!/bin/bash
-xset s 330
-xset dpms 0 0 330
+xset s 930
+xset dpms 0 0 930

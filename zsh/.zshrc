@@ -20,7 +20,7 @@ ZSH_THEME="af-magic"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
- export UPDATE_ZSH_DAYS=7
+ export UPDATE_ZSH_DAYS=30
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -63,11 +63,11 @@ source $ZSH/oh-my-zsh.sh
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
- if [[ -n $SSH_CONNECTION ]]; then
+if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
- else
+else
    export EDITOR='vim'
- fi
+fi
  
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
@@ -76,9 +76,9 @@ export ARCHFLAGS="-arch x86_64"
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 #Set terminal type to xterm when in ssh session
- if [[ -n $SSH_CONNECTION ]]; then
+if [[ -n $SSH_CONNECTION ]]; then
     export TERM=xterm
- else
+else
     case $TERM in (xterm|rxvt-unicode|tmux) export TERM="$TERM-256color";; esac 
 fi
 
@@ -98,6 +98,14 @@ fi
 #Turn off beeping
 setopt NO_BEEP
 
+#Start ssh agent if not already started
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    ssh-agent > ~/.ssh-agent-thing
+fi
+if [[ "$SSH_AGENT_PID" == "" ]]; then
+    eval "$(<~/.ssh-agent-thing)"
+fi 
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -114,16 +122,17 @@ alias tmuxkill='tmux kill-session -t'
 alias spicedefaultport='spicy spice://127.0.0.1 -p 3001'
 alias scrot-custom='scrot ~/Pictures/Scrot/%b%d::%H%M%S.png' 
 alias youtube-dlmp3="youtube-dl -o '%(title)s.%(ext)s' -x --audio-format mp3"
-alias snapshot-create="qemu-img create -f qcow2 -b image_file snapshot.img"
+alias qemu-snapshot-create="qemu-img create -f qcow2 -b image_file snapshot.img"
+alias gmpv="gnome-mpv"
 
-#Update pacman mirrors
+# Update pacman mirrors
 updatepacmanmirrors() {
 	sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 	sudo reflector --country US -p http --save /etc/pacman.d/mirrorlist
 	sudo pacman -Syu
 }
 
-#Optimize pacman
+# Optimize pacman
 optimizepacman() {
 	sudo pacman -Sc
 	sudo pacman-optimize
@@ -136,7 +145,7 @@ music() {
 	ncmpcpp
 }
 
-#Update Debian based distros alias
+# Update Debian based distros alias
 updatedebiansystem() {
 	sudo apt update
 	sudo apt upgrade
@@ -144,11 +153,30 @@ updatedebiansystem() {
 	sudo apt autoremove
 	sudo apt clean
 }
+# Run ls after cd'ing into a directory.
+cd () 
+{ 
+    builtin cd "$*";
+    if [ $? -ne 0 ]; then
+        if [ ! -x "$1" ] && [ -d "$1" ]; then
+            echo -n "Cannot access dir, become root? ";
+            read foo;
+            if [[ $foo = "y" ]] || [[ $foo = "Y" ]]; then
+                sudo bash;
+                return;
+            else
+                builtin cd "$*";
+                return;
+            fi;
+        fi;
+    else
+        echo;
+        ls --color=auto --color=auto;
+    fi
+}
 
-# Alias nano, vi, and emacs to vim
-alias nano='vim'
+# Alias vi to vim.
 alias vi='vim'
-alias emacs='vim'
 
 #The fuck 
 eval $(thefuck --alias)

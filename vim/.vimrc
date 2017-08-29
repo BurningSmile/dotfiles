@@ -7,8 +7,6 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-Plug 'fatih/vim-go'
-"Plug 'nsf/gocode' "Auto completion for go.
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'tpope/vim-obsession' "Save vim layout
 Plug 'joshdick/onedark.vim' "color shceme
@@ -20,9 +18,7 @@ Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-sensible'
 Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim' }
 Plug 'Valloric/YouCompleteMe' "Auto completion
-"Plug 'dhruvasagar/vim-prosession'
 Plug 'ConradIrwin/vim-bracketed-paste' " Sets paste when pasting with normal keybinds
-Plug 'francoiscabrol/ranger.vim'
 Plug 'suan/vim-instant-markdown'
 
 " Initialize plugin system

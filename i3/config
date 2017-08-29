@@ -242,7 +242,7 @@ bindsym $mod+Shift+m exec killall compton
 bindsym $mod+m exec compton
 
 #toggle Redshift
-bindsym $mod+Shift+ctrl+r exec $HOME/scripts/Redshift_toggle.sh
+bindsym $mod+Shift+ctrl+r exec $HOME/.config/i3/scripts/Redshift-toggle.sh
 
 #setup screenlayout
 exec_always --no-startup-id $HOME/.config/.screenlayout/config.sh 

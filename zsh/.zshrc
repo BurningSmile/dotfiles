@@ -72,33 +72,35 @@ fi
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
 
-# ssh
+# Ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-#Set terminal type to xterm when in ssh session
+# Set terminal type to xterm when in ssh session
 if [[ -n $SSH_CONNECTION ]]; then
     export TERM=xterm
 else
     case $TERM in (xterm|rxvt-unicode|tmux) export TERM="$TERM-256color";; esac 
 fi
 
-#Start tmux on terminal start
+# Start tmux on terminal start.
 if command -v tmux>/dev/null; then
   [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
 fi
 
-#powerline start
-. /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+# Start powerline on Arch.
+if [[ -r /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
+    source /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+fi
 
-#powerline start ubuntu/debian
+# Start powerline on Debian/Ubuntu.
 if [[ -r /usr/share/powerline/bindings/zsh/powerline.zsh ]]; then
     source /usr/share/powerline/bindings/zsh/powerline.zsh
 fi
 
-#Turn off beeping
+# Turn off beeping
 setopt NO_BEEP
 
-#Start ssh agent if not already started
+# Start ssh agent if not already started
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
     ssh-agent > ~/.ssh-agent-thing
 fi
@@ -111,19 +113,25 @@ fi
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias fixvmware='sudo vmware-modconfig --console --install-all'
 alias removeorphans='sudo pacman -Rns $(pacman -Qtdq)'
 alias ls='ls --color=tty'
 alias rdesktop-localhost-default-port='rdesktop -g 1920x1080 -P -z -x l -r sound:off localhost:3389'
 alias tmuxkill='tmux kill-session -t'
-alias spicedefaultport='spicy spice://127.0.0.1 -p 3001'
+alias spicedefaultport='spicy -f spice://127.0.0.1 -p 3001'
 alias scrot-custom='scrot ~/Pictures/Scrot/%b%d::%H%M%S.png' 
 alias youtube-dlmp3="youtube-dl -o '%(title)s.%(ext)s' -x --audio-format mp3"
 alias qemu-snapshot-create="qemu-img create -f qcow2 -b image_file snapshot.img"
-alias gmpv="gnome-mpv"
+alias haste="HASTE_SERVER=https://hastebin.burningsmile.tech haste"
+alias gmpv='gnome-mpv'
+alias tar-multithreaded='tar -I pigz'
+
+ssh-tmux() {
+tmux source-file ~/.tmux-ssh.conf 
+ssh $1 
+tmux source-file ~/.tmux.conf
+}
+
 
 # Update pacman mirrors
 updatepacmanmirrors() {

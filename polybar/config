@@ -54,11 +54,11 @@ border-color = #131313
 
 font-0 = Hack:pixelsize=10:weight=bold;2
 font-1 = Hack:pixelsize=32;2
-font-2 =  FontAwesome:pixelsize=14;0
+font-2 = FontAwesome:pixelsize=14;0
 
 modules-left = i3 arrow-i3
 modules-center =
-modules-right = arrow7 filesystem arrow6 mpd arrow7 memory arrow6 cpu arrow7 eth vpncheck arrow6 volume arrow7 coretemps arrow6 date arrow7 redshift
+modules-right = arrow7 filesystem arrow6 mpd arrow7 cpu arrow6 memory arrow7 eth vpncheck arrow6 volume arrow7 coretemps arrow6 date arrow7 redshift
 ;modules-right-laptop = arrow7 filesystem arrow6 xbacklight arrow7 mpd arrow6 memory arrow7 cpu arrow6 wlan arrow7 battery arrow6 volume arrow7 coretemps arrow6 date arrow7 redshift
 
 tray-position = right
@@ -331,21 +331,21 @@ card = intel_backlight
 type = internal/cpu
 interval = 2
 format-prefix = " CPU "
-format-prefix-foreground = ${colors.purple}
-format-prefix-background = ${colors.background}
+format-prefix-foreground = ${colors.pink}
+format-prefix-background = ${colors.grey}
 label = %percentage%%
-label-foreground = ${colors.purple}
-label-background = ${colors.background}
+label-foreground = ${colors.pink}
+label-background = ${colors.grey}
 
 [module/memory]
 type = internal/memory
 interval = 2
 format-prefix = " RAM "
-format-prefix-foreground = ${colors.pink}
-format-prefix-background = ${colors.grey}
+format-prefix-foreground = ${colors.purple}
+format-prefix-background = ${colors.background}
 label = %percentage_used%%
-label-foreground = ${colors.pink}
-label-background = ${colors.grey}
+label-foreground = ${colors.purple}
+label-background = ${colors.background}
 
 [module/wlan]
 type = internal/network

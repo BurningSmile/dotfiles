@@ -1,17 +1,14 @@
 " load vimplug
 call plug#begin('~/.vim/plugged')
 
-"Plug 'junegunn/vim-easy-align'
-"Plug 'junegunn/vim-github-dashboard'
 Plug 'SirVer/ultisnips' 
 Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'tpope/vim-obsession' "Save vim layout
 Plug 'joshdick/onedark.vim' "color shceme
 Plug 'rakr/vim-one' "other color scheme
-Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot' "Pack of various programing languages.
 Plug 'tmux-plugins/vim-tmux'
 Plug 'godlygeek/csapprox'
 Plug 'mhinz/vim-startify'

@@ -10,7 +10,7 @@
 ZSH_THEME="af-magic"
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+ CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -42,7 +42,7 @@ ZSH_THEME="af-magic"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
- HIST_STAMPS="mm/dd/yyyy"
+ HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -51,7 +51,7 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git common-aliases python)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -72,7 +72,7 @@ fi
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
 
-# Ssh
+# Ssh key path
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set terminal type to xterm when in ssh session
@@ -87,14 +87,14 @@ if command -v tmux>/dev/null; then
   [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
 fi
 
-# Start powerline on Arch.
+
+# Start powerline on a Debian/Ubuntu system, if it fails check if it is an Arch system.
+if [[ -r /usr/share/powerline/bindings/zsh/powerline.zsh ]]; then
+    source /usr/share/powerline/bindings/zsh/powerline.zsh
+else
 if [[ -r /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
     source /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 fi
-
-# Start powerline on Debian/Ubuntu.
-if [[ -r /usr/share/powerline/bindings/zsh/powerline.zsh ]]; then
-    source /usr/share/powerline/bindings/zsh/powerline.zsh
 fi
 
 # Turn off beeping
@@ -122,18 +122,18 @@ alias spicedefaultport='spicy -f spice://127.0.0.1 -p 3001'
 alias scrot-custom='scrot ~/Pictures/Scrot/%b%d::%H%M%S.png' 
 alias youtube-dlmp3="youtube-dl -o '%(title)s.%(ext)s' -x --audio-format mp3"
 alias qemu-snapshot-create="qemu-img create -f qcow2 -b image_file snapshot.img"
-alias haste="HASTE_SERVER=https://hastebin.burningsmile.tech haste"
-alias gmpv='gnome-mpv'
+alias gmpv="gnome-mpv"
 alias tar-multithreaded='tar -I pigz'
+alias rm='rm -I'
 
+# Change prefix key for local tmux when using tmux in a ssh session.
 ssh-tmux() {
 tmux source-file ~/.tmux-ssh.conf 
 ssh $1 
 tmux source-file ~/.tmux.conf
 }
 
-
-# Update pacman mirrors
+# Update pacman mirrors.
 updatepacmanmirrors() {
 	sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 	sudo reflector --country US -p http --save /etc/pacman.d/mirrorlist
@@ -146,7 +146,7 @@ optimizepacman() {
 	sudo pacman-optimize
 }
 
-# Mpd Start
+# Mpd Start and refresh the music database.
 music() {
 	mpd
 	mpc update
@@ -179,7 +179,7 @@ cd ()
         fi;
     else
         echo;
-        ls --color=auto --color=auto;
+        ls --color=auto;
     fi
 }
 

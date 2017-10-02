@@ -17,7 +17,7 @@ Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim' }
 Plug 'Valloric/YouCompleteMe' "Auto completion
 Plug 'ConradIrwin/vim-bracketed-paste' " Sets paste when pasting with normal keybinds
 Plug 'suan/vim-instant-markdown'
-
+Plug 'tpope/vim-obsession'
 " Initialize plugin system
 call plug#end()
 

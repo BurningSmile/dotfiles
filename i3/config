@@ -249,8 +249,9 @@ exec_always --no-startup-id $HOME/.config/.screenlayout/config.sh
 
 #load applications on start
 exec compton
+exec dropbox
 exec steam-native
-exec --no-startup-id dropbox start
+#exec redshift
 
 #Start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

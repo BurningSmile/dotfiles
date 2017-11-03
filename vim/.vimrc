@@ -17,8 +17,10 @@ Plug 'tpope/vim-sensible'
 Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim' }
 Plug 'Valloric/YouCompleteMe' "Auto completion
 Plug 'ConradIrwin/vim-bracketed-paste' " Sets paste when pasting with normal keybinds
-Plug 'suan/vim-instant-markdown'
 Plug 'tpope/vim-obsession'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'shime/vim-livedown'
 " Initialize plugin system
 call plug#end()
 
@@ -88,10 +90,12 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-" Set instant markdown to not open preview on every markdown file.
-let g:instant_markdown_autostart = 0
+" Start livemarkdown when i open a markdown document.
+let g:livedown_autorun = 1
+let g:livedown_open = 1 
+
 " Map a key to open the preview 
-map <leader>md :InstantMarkdownPreview<CR>
+nmap md :LivedownToggle<CR>
 
 "enable syntax and plugins (for netrw)
 syntax enable

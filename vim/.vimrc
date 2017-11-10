@@ -90,6 +90,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
+" Vim-markdown
+let g:vim_markdown_folding_disabled = 0
+
 " Start livemarkdown when i open a markdown document.
 let g:livedown_autorun = 1
 let g:livedown_open = 1 
@@ -98,7 +101,6 @@ let g:livedown_open = 1
 nmap md :LivedownToggle<CR>
 
 "enable syntax and plugins (for netrw)
-syntax enable
 filetype plugin on
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)

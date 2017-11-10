@@ -213,7 +213,7 @@ hide_edge_borders both
 exec_always feh --bg-scale ~/Pictures/backgrounds/firewatch_ARC.jpg 
 
 #i3-lock-fancy
-bindsym $mod+Ctrl+Shift+l exec lock
+bindsym $mod+Ctrl+Shift+l exec i3lock
 
 #system wide media player controls
 #bindsym XF86AudioPlay exec playerctl play

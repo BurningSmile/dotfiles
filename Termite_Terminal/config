@@ -1,7 +1,7 @@
 [colors]
-background = rgba(63, 63, 63, 0.8)
+background = rgba(64, 69, 82,1)
 
 [options]
-font = Hack-Regular 10
-font = Hack-Regular 10
-font = Hack-Regular 10
+font = RobotoMono 10
+font = robotoMono 10
+font = robotoMono 10

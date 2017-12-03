@@ -91,7 +91,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
 " Vim-markdown
-let g:vim_markdown_folding_disabled = 0
+let g:vim_markdown_folding_disabled = 1 "Disable auto folding, I prefer to manually fold the sections.
 
 " Start livemarkdown when i open a markdown document.
 let g:livedown_autorun = 1
@@ -100,8 +100,12 @@ let g:livedown_open = 1
 " Map a key to open the preview 
 nmap md :LivedownToggle<CR>
 
-"enable syntax and plugins (for netrw)
+" Enable syntax and plugins (for netrw)
 filetype plugin on
+
+" Enable folds to saved and restored.
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 "xmap ga <Plug>(EasyAlign)

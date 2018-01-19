@@ -10,7 +10,7 @@
 ZSH_THEME="af-magic"
 
 # Uncomment the following line to use case-sensitive completion.
- CASE_SENSITIVE="true"
+# CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -83,9 +83,9 @@ else
 fi
 
 # Start tmux on terminal start.
-if command -v tmux>/dev/null; then
-  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
-fi
+#if command -v tmux>/dev/null; then
+#  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux -2
+#fi
 
 
 # Start powerline on a Debian/Ubuntu system, if it fails check if it is an Arch system.
@@ -108,18 +108,23 @@ if [[ "$SSH_AGENT_PID" == "" ]]; then
     eval "$(<~/.ssh-agent-thing)"
 fi 
 
+# Set Path
+PATH=$PATH:$HOME/.gem/ruby/2.5.0/bin
+export path
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-alias fixvmware='sudo vmware-modconfig --console --install-all'
 alias removeorphans='sudo pacman -Rns $(pacman -Qtdq)'
-alias ls='ls --color=tty'
+alias ls='ls --color=auto'
 alias rdesktop-localhost-default-port='rdesktop -g 1920x1080 -P -z -x l -r sound:off localhost:3389'
 alias tmuxkill='tmux kill-session -t'
 alias spicedefaultport='spicy -f spice://127.0.0.1 -p 3001'
-alias scrot-custom='scrot ~/Pictures/Scrot/%b%d::%H%M%S.png' 
+alias virt-viewer-local='virt-viewer --connect qemu:///session'
+alias scrot-fullscreen='scrot ~/Pictures/Scrot/%b%d::%H%M%S.png' 
+alias scrot-selection='scrot -s ~/Pictures/Scrot/%b%d::%H%M%S.png' 
 alias youtube-dlmp3="youtube-dl -o '%(title)s.%(ext)s' -x --audio-format mp3"
 alias qemu-snapshot-create="qemu-img create -f qcow2 -b image_file snapshot.img"
 alias gmpv="gnome-mpv"
@@ -129,7 +134,7 @@ alias rm='rm -I'
 # Change prefix key for local tmux when using tmux in a ssh session.
 ssh-tmux() {
 tmux source-file ~/.tmux-ssh.conf 
-ssh $1 
+/usr/bin/ssh $1 
 tmux source-file ~/.tmux.conf
 }
 
@@ -178,7 +183,6 @@ cd ()
             fi;
         fi;
     else
-        echo;
         ls --color=auto;
     fi
 }

@@ -58,7 +58,7 @@ font-2 = FontAwesome:pixelsize=14;0
 
 modules-left = i3 arrow-i3
 modules-center =
-modules-right = arrow7 filesystem arrow6 mpd arrow7 cpu arrow6 memory arrow7 eth vpncheck arrow6 volume arrow7 coretemps arrow6 date arrow7 redshift
+modules-right = arrow7 filesystem arrow6 mpd arrow7 cpu arrow6 memory arrow7 eth-custom vpncheck arrow6 volume arrow7 coretemps arrow6 date arrow7 redshift
 ;modules-right-laptop = arrow7 filesystem arrow6 xbacklight arrow7 mpd arrow6 memory arrow7 cpu arrow6 wlan arrow7 battery arrow6 volume arrow7 coretemps arrow6 date arrow7 redshift
 
 tray-position = right
@@ -375,7 +375,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = eno1
+interface = br0
 interval = 3.0
 
 format-connected-underline = #55aa55
@@ -391,6 +391,17 @@ format-disconnected =
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/eth-custom]
+type = custom/script
+interval = 120
+exec = "ifconfig -a | awk '/(cast)/ { print $2 }' | cut -d':' -f2 | head -1"
+;format-prefix =
+format-prefix-foreground = ${colors.foreground}
+format-prefix-background = ${colors.background-grey}
+label-foreground = ${colors.foreground}
+label-background = ${colors.background-grey}
+
 
 [module/vpncheck]
 type = custom/script

@@ -43,7 +43,7 @@ endif
 colorscheme onedark
 syntax on 
 
-"powerline config
+" Powerline config
 set laststatus=2 " Always display the statusline in all windows
 set showtabline=2 " Always display the tabline, even if there is only one tab
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
@@ -68,10 +68,13 @@ let g:CSApprox_hook_post = [
             \ 'highlight clear LineNr'
             \]
 
-"enable line numbers
+" Enable line numbers
 set number
 
 set nocompatible
+
+" Enables vim's built in spell check
+set spell!
 
 "Set you complete me path to the location to python2. 
 let g:ycm_server_python_interpreter = '/usr/bin/python2'
@@ -92,10 +95,6 @@ let g:UltiSnipsEditSplit="vertical"
 
 " Vim-markdown
 let g:vim_markdown_folding_disabled = 1 "Disable auto folding, I prefer to manually fold the sections.
-
-" Start livemarkdown when i open a markdown document.
-let g:livedown_autorun = 1
-let g:livedown_open = 1 
 
 " Map a key to open the preview 
 nmap md :LivedownToggle<CR>

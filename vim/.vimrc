@@ -8,9 +8,8 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'joshdick/onedark.vim' "color shceme
-Plug 'rakr/vim-one' "other color scheme
 Plug 'sheerun/vim-polyglot' "Pack of various programing languages.
-Plug 'tmux-plugins/vim-tmux'
+Plug 'tmux-plugins/vim-tmux' " syntax highlighting in .tmux.conf
 Plug 'godlygeek/csapprox'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-sensible'
@@ -20,7 +19,8 @@ Plug 'ConradIrwin/vim-bracketed-paste' " Sets paste when pasting with normal key
 Plug 'tpope/vim-obsession'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-Plug 'shime/vim-livedown'
+"Plug 'shime/vim-livedown'
+
 " Initialize plugin system
 call plug#end()
 
@@ -74,12 +74,26 @@ set number
 set nocompatible
 
 " Enables vim's built in spell check
-set spell!
+nmap sp :set spell!<CR>
+set spelllang=en_us
 
-"Set you complete me path to the location to python2. 
+" Set you complete me path to the location to python2. 
 let g:ycm_server_python_interpreter = '/usr/bin/python2'
 
-"copy to system clipboard when yanking.
+" Set the YCM blacklist
+let g:ycm_filetype_blacklist = {
+      \ 'tagbar' : 1,
+      \ 'qf' : 1,
+      \ 'notes' : 1,
+      \ 'unite' : 1,
+      \ 'text' : 1,
+      \ 'vimwiki' : 1,
+      \ 'pandoc' : 1,
+      \ 'infolog' : 1,
+      \ 'mail' : 1
+      \}
+
+" Copy to system clipboard when yanking (version =< 7.3.74)
 set clipboard=unnamedplus
 
 "allow saving edits of files with sudo. To save a file just type w!!

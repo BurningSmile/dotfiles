@@ -93,7 +93,7 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-#Custom names for workspaces
+# Custom names for workspaces
 set $workspace1 "1:Terminals"
 set $workspace2 "2:Steam"
 set $workspace3 "3:Internet"
@@ -208,11 +208,11 @@ hide_edge_borders both
 #
 #}
 
-# change wallpaper every reload
+# Change wallpaper every reload
 #exec_always feh --bg-scale ~/Pictures/backgrounds/Mountins-Wallpaper.jpg
 exec_always feh --bg-scale ~/Pictures/backgrounds/firewatch_ARC.jpg 
 
-#i3-lock-fancy
+# Keybinds for i3lock
 bindsym $mod+Ctrl+Shift+l exec i3lock
 
 #system wide media player controls
@@ -221,7 +221,7 @@ bindsym $mod+Ctrl+Shift+l exec i3lock
 #bindsym XF86AudioNext exec playerctl next
 #bindsym XF86AudioPrev exec playerctl previous
 
-#mpd controls
+# Mpd controls
 bindsym XF86AudioPrev exec mpc prev
 bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPlay exec mpc toggle
@@ -231,44 +231,44 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #i
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
-#screen brightness controls
+# Screen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
-#exec compton  
+# Exec compton  
 bindsym $mod+Shift+m exec killall compton
 
-#kill Compton
+# Kill Compton
 bindsym $mod+m exec compton
 
-#toggle Redshift
+# Toggle Redshift
 bindsym $mod+Shift+ctrl+r exec $HOME/.config/i3/scripts/Redshift-toggle.sh
 
-#setup screenlayout
-exec_always --no-startup-id $HOME/.config/.screenlayout/config.sh 
+# Setup screenlayout
+exec_always --no-startup-id $HOME/.config/.screenlayout/config-vga.sh 
 
-#load applications on start
-exec compton
-exec dropbox
-exec steam-native
+# Load applications on start
+#exec compton
+exec dropbox start
+exec steam
 #exec redshift
 
-#Start polybar
+# Start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-#Exec nvidia gpu config
-exec_always --no-startup-id $HOME/scripts/powermixer.sh
+# Exec Nvidia power mixer config
+exec_always --no-startup-id $HOME/code/scripts/powermixer.sh
 
-#exec screentimeouts script [For screen sleep]
+# Exec screentimeouts script [For screen sleep]
 exec_always --no-startup-id $HOME/.config/i3/scripts/screentimeout.sh
 
-#exec autolock script
+# Exec autolock script
 exec_always --no-startup-id $HOME/.config/i3/scripts/autolock.sh 
 
-#exec dunst for notifications
+# Exec dunst for notifications
 exec dunst
 
-#Steam games fix
+# Steam games fix
 #for_window [class="^Steam$" title="^Friends$"] floating enable
 for_window [class="^Steam$" title="Steam - News"] floating enable
 #for_window [class="^Steam$" title=".* - Chat"] floating enable
@@ -280,5 +280,5 @@ for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
 for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
 for_window [title="^Steam Keyboard$"] floating enable
 
-#Authy Floting enable
+# Authy Floting enable
 for_window [title="(?i)authy"] floating enable

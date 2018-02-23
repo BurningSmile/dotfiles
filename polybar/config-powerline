@@ -421,7 +421,7 @@ interval = 5
 
 date = " %Y-%m-%d"
 
-time= %I:%M:%S
+time= %H:%M:%S
 
 label = %date% %time%
 label-foreground = ${colors.white}

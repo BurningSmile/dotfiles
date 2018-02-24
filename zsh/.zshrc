@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/david/.oh-my-zsh
+  export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -62,6 +62,9 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
+# Disable nomatch globbing expression
+setopt +o nomatch
+
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='vim'
@@ -108,15 +111,12 @@ if [[ "$SSH_AGENT_PID" == "" ]]; then
     eval "$(<~/.ssh-agent-thing)"
 fi 
 
-# Set Path
-PATH=$PATH:$HOME/.gem/ruby/2.5.0/bin
-export path
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+alias git-checkout-all='git reset && git checkout -- .'
 alias removeorphans='sudo pacman -Rns $(pacman -Qtdq)'
 alias ls='ls --color=auto'
 alias rdesktop-localhost-default-port='rdesktop -g 1920x1080 -P -z -x l -r sound:off localhost:3389'
@@ -130,6 +130,9 @@ alias qemu-snapshot-create="qemu-img create -f qcow2 -b image_file snapshot.img"
 alias gmpv="gnome-mpv"
 alias tar-multithreaded='tar -I pigz'
 alias rm='rm -I'
+alias virsh='sudo virsh'
+PATH=$PATH:$HOME/.gem/ruby/2.5.0/bin
+export path
 
 # Change prefix key for local tmux when using tmux in a ssh session.
 ssh-tmux() {
@@ -166,6 +169,7 @@ updatedebiansystem() {
 	sudo apt autoremove
 	sudo apt clean
 }
+
 # Run ls after cd'ing into a directory.
 cd () 
 { 
@@ -189,11 +193,6 @@ cd ()
 
 # Alias vi to vim.
 alias vi='vim'
-
-#The fuck 
-eval $(thefuck --alias)
-# You can use whatever you want as an alias, like for Mondays:
-eval $(thefuck --alias FUCK)
 
 #FZF
 #export FZF_DEFAULT_OPTS='--height 40% --border'

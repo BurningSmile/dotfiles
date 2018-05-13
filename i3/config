@@ -37,7 +37,7 @@ bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
 bindsym $mod+d exec ~/.config/i3/scripts/rofi.sh 
-bindsym $mod+Shift+d exec --no-startup-id xdg-open "$(locate home | rofi -threads 0 -width 100 -dmenu -i -p "locate:")"
+#bindsym $mod+Shift+d exec --no-startup-id xdg-open "$(locate home | rofi -threads 0 -width 100 -dmenu -i -p "locate:")"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -97,13 +97,13 @@ bindsym $mod+a focus parent
 set $workspace1 "1:Terminals"
 set $workspace2 "2:Steam"
 set $workspace3 "3:Internet"
-set $workspace4 "4:Random"
+set $workspace4 "4:Music"
 set $workspace5 "5:Random"
 set $workspace6 "6:Random"
 set $workspace7 "7:Random"
 set $workspace8 "8:Random"
 set $workspace9 "9:RDP/Spice"
-set $workspace10 "10:Music"
+set $workspace10 "10:Random"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -135,11 +135,11 @@ assign [class="Steam"] $workspace2
 #assign [class="Google-chrome"] $workspace3
 #assign [class="Firefox"] $workspace3
 #assign [class="Spicy"] $workspace9
-assign [class="Audacious"] $workspace10
-assign [class="Google Play Music Desktop Player"] $workspace10
-assign [class="mpv"] $workspace10
-assign [class="Spotify"] $workspace10
-assign [class="Vlc"] $workspace10
+assign [class="Audacious"] $workspace4
+assign [class="Google Play Music Desktop Player"] $workspace4
+assign [class="mpv"] $workspace4
+assign [class="Spotify"] $workspace4
+assign [class="Vlc"] $workspace4
 
 #move workspace to other monitor
 bindsym $mod+Ctrl+Shift+m move workspace to output left
@@ -249,9 +249,8 @@ exec_always --no-startup-id $HOME/.config/.screenlayout/config-vga.sh
 
 # Load applications on start
 #exec compton
-exec dropbox start
 exec steam
-#exec redshift
+exec redshift
 
 # Start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

@@ -58,7 +58,7 @@ alias removeorphans='sudo pacman -Rns $(pacman -Qtdq)'
 alias ls='ls --color=auto'
 alias rdesktop-localhost-default-port='rdesktop -g 1920x1080 -P -z -x l -r sound:off localhost:3389'
 alias tmuxkill='tmux kill-session -t'
-alias spicedefaultport='spicy -f spice://127.0.0.1 -p 3001'
+alias spicedefaultport='spicy -f spice://127.0.0.1 -p 5900'
 alias virt-viewer-local='virt-viewer --connect qemu:///session'
 alias scrot-fullscreen='scrot ~/Pictures/Scrot/%b%d::%H%M%S.png' 
 alias scrot-selection='scrot -s ~/Pictures/Scrot/%b%d::%H%M%S.png' 
@@ -99,10 +99,10 @@ music() {
 # Update Debian based distros alias
 updatedebiansystem() {
 	sudo apt update
-	sudo apt upgrade
 	sudo apt dist-upgrade
 	sudo apt autoremove
 	sudo apt clean
+    sudo snap refresh
 }
 
 # Run ls after cd'ing into a directory.

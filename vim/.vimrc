@@ -6,7 +6,6 @@ Plug 'ervandew/supertab' " Required to make YouCompleteMe work with ultisnips.
 Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'joshdick/onedark.vim' "color shceme
 Plug 'sheerun/vim-polyglot' "Pack of various programing languages.
 Plug 'tmux-plugins/vim-tmux' " syntax highlighting in .tmux.conf
@@ -17,9 +16,7 @@ Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim' }
 Plug 'Valloric/YouCompleteMe' "Auto completion
 Plug 'ConradIrwin/vim-bracketed-paste' " Sets paste when pasting with normal keybinds
 Plug 'tpope/vim-obsession'
-Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-"Plug 'shime/vim-livedown'
 
 " Initialize plugin system
 call plug#end()

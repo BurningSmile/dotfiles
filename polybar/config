@@ -407,7 +407,7 @@ ramp-foreground = ${colors.foreground-alt}
 type = custom/script
 interval = 1
 exec-if = sensors
-exec = ~/.config/polybar/tempcores-new.sh
+exec = ~/.config/polybar/tempcores.sh
 
 [module/powermenu]
 type = custom/menu

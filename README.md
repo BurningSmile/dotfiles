@@ -20,7 +20,7 @@ Read through the scripts in the scripts repo to see what the script does before 
 
 https://github.com/BurningSmile/LinuxScripts
 
-The install script is for Arch based systems. An Ubuntu install script will be written when I get the time to sort out the termite install issue.
+The script is written for Debian based systems, a install script for Arch is also available in the repo.
 
 # Credits
 

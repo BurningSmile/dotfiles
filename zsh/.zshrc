@@ -54,12 +54,15 @@ setopt NO_BEEP
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+alias net-restart='sudo systemctl restart networking.service NetworkManager.service'
+alias dim-screen='sudo sh -c "echo 200 > /sys/class/backlight/intel_backlight/brightness"'
+alias brighten-screen='sudo sh -c "echo 3000 > /sys/class/backlight/intel_backlight/brightness"'
 alias git-checkout-all='git reset && git checkout -- .'
 alias ls='ls --color=auto'
 alias tmuxkill='tmux kill-session -t'
-alias scrot-fullscreen='scrot ~/Pictures/Scrot/%b%d::%H%M%S.png' 
-alias scrot-selection='scrot -s ~/Pictures/Scrot/%b%d::%H%M%S.png' 
-alias youtube-dlmp3="youtube-dl -o '%(title)s.%(ext)s' -x --audio-format mp3"
+alias scrot-fullscreen='scrot ~/Pictures/Scrot/%Y-%m-%d::%H:%M:%S.png' 
+alias scrot-selection='scrot -s ~/Pictures/Scrot/%Y-%m-%d::%H:%M:%S.png' 
+alias youtube-dlmp3="/usr/local/bin/youtube-dl -o '%(title)s.%(ext)s' -x --audio-format mp3"
 alias gmpv="gnome-mpv"
 alias tar-multithreaded='tar -I pigz'
 alias rm='rm -I'
@@ -189,11 +192,8 @@ dirsize () {
   rm -rf /tmp/list
 }
 
-# Alias vi to vim.
-alias vi='vim'
-
 # Include ruby in $PATH
-PATH="$PATH:$HOME/.gem/ruby/2.5.0/bin:$HOME/.local/bin"
+PATH="$PATH:$HOME/.gem/ruby/2.5.0/bin:$HOME/.local/bin:/snap/bin"
 export path
 
 #FZF
@@ -208,3 +208,19 @@ fi
 # Enable reverse seatch
 bindkey -v
 bindkey '^R' history-incremental-search-backward
+
+# Alias vim to vimx if on fedora
+distroname=$(grep PRETTY_NAME /etc/os-release | sed 's/PRETTY_NAME=//g' | tr -d '="')
+
+if [ "$distroname" = "Fedora 30 (Workstation Edition)" ];
+then
+   alias vi='vimx'
+   alias vim='vimx'
+elif [ "$distroname" = "Fedora 29 (Workstation Edition)" ];
+then
+   alias vi='vimx'
+   alias vim='vimx'
+else
+    alias vi='vim'
+    alias vim='vim'
+fi

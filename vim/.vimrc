@@ -94,7 +94,8 @@ let g:ycm_filetype_blacklist = {
 set clipboard=unnamedplus
 
 "allow saving edits of files with sudo. To save a file just type w!!
-cmap w!! w !sudo tee >/dev/null %
+"cmap w!! w !sudo tee >/dev/null %
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!<CR>
 
 "snippets
 let g:UltiSnipsExpandTrigger="<tab>"

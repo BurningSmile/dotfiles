@@ -134,15 +134,17 @@ assign [class="Steam"] $workspace2
 #assign [class="Chromium"] $workspace3
 #assign [class="Google-chrome"] $workspace3
 #assign [class="Firefox"] $workspace3
-#assign [class="Spicy"] $workspace9
 assign [class="Audacious"] $workspace4
 assign [class="Google Play Music Desktop Player"] $workspace4
 assign [class="mpv"] $workspace4
-assign [class="Spotify"] $workspace4
+assign [class="Spotify"] $workspace10
 assign [class="Vlc"] $workspace4
 
-#move workspace to other monitor
-bindsym $mod+Ctrl+Shift+m move workspace to output left
+#move workspaces using keybinds
+bindsym $mod+Ctrl+Shift+Left move workspace to output left
+bindsym $mod+Ctrl+Shift+Down move workspace to output down
+bindsym $mod+Ctrl+Shift+Up move workspace to output up
+bindsym $mod+Ctrl+Shift+Right move workspace to output right
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -210,7 +212,7 @@ hide_edge_borders both
 
 # Change wallpaper every reload
 #exec_always feh --bg-scale ~/Pictures/backgrounds/Mountins-Wallpaper.jpg
-exec_always feh --bg-scale ~/Pictures/backgrounds/firewatch_ARC.jpg 
+exec_always feh --auto-zoom --bg-scale ~/Pictures/backgrounds/firewatch_ARC.jpg 
 
 # Keybinds for i3lock
 bindsym $mod+Ctrl+Shift+l exec i3lock && sleep 2 && xset dpms force standby
@@ -251,7 +253,7 @@ bindsym $mod+m exec compton
 bindsym $mod+Shift+ctrl+r exec $HOME/.config/i3/scripts/Redshift-toggle.sh
 
 # Setup screenlayout
-exec_always --no-startup-id $HOME/.config/.screenlayout/config.sh
+exec_always $HOME/.config/.screenlayout/config.sh
 
 # Load applications on start
 #exec compton

@@ -100,3 +100,5 @@ URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 *.color246: #a89984
 *.color248: #bdae93
 *.color250: #d5c4a1
+
+Xcursor.size: 32

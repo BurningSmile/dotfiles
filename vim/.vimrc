@@ -74,9 +74,6 @@ set nocompatible
 nmap sp :set spell!<CR>
 set spelllang=en_us
 
-" Set you complete me path to the location to python2. 
-let g:ycm_server_python_interpreter = '/usr/bin/python2'
-
 " Set the YCM blacklist
 let g:ycm_filetype_blacklist = {
       \ 'tagbar' : 1,
